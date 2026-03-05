@@ -11,6 +11,7 @@ void main() {
     Heap myHeap = new Heap();
     myBST.rInsert(50);
     myBST.rInsert(20);
+    myBST.rInsert(5);
 
-    System.out.println(myBST.rMinValue());
+    System.out.println(myBST.rMaxValue());
 }

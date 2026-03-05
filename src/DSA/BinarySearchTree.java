@@ -19,67 +19,67 @@ public class BinarySearchTree {
     }
 
 
-    public boolean insert(int value) {
-        Node newNode = new Node(value);
-        if (root == null) {
-            root = newNode;
-            return true;
-        }
-        Node temp = root;
-        while (true) {
-            if (temp.value == newNode.value) {
-                return false;
-            }
-            if (newNode.value < temp.value) {
-                if (temp.left == null) {
-                    temp.left = newNode;
-                    return true;
-                }
-                temp = temp.left;
-            } else {
-                if (temp.right == null) {
-                    temp.right = newNode;
-                    return true;
-                }
-                temp = temp.right;
-            }
+//    public boolean insert(int value) {
+//        Node newNode = new Node(value);
+//        if (root == null) {
+//            root = newNode;
+//            return true;
+//        }
+//        Node temp = root;
+//        while (true) {
+//            if (temp.value == newNode.value) {
+//                return false;
+//            }
+//            if (newNode.value < temp.value) {
+//                if (temp.left == null) {
+//                    temp.left = newNode;
+//                    return true;
+//                }
+//                temp = temp.left;
+//            } else {
+//                if (temp.right == null) {
+//                    temp.right = newNode;
+//                    return true;
+//                }
+//                temp = temp.right;
+//            }
+//
+//        }
+//    }
 
-        }
-    }
+//    public boolean contains(int value) {
+//        if (root == null) return false;
+//        Node temp = root;
+//        while (temp != null) {
+//            if (temp.value > value) {
+//                temp = temp.left;
+//            } else if (temp.value < value) {
+//                temp = temp.right;
+//            } else return true;
+//
+//        }
+//        return false;
+//    }
 
-    public boolean contains(int value) {
-        if (root == null) return false;
-        Node temp = root;
-        while (temp != null) {
-            if (temp.value > value) {
-                temp = temp.left;
-            } else if (temp.value < value) {
-                temp = temp.right;
-            } else return true;
+//    public int minValue() {
+//        if (root == null) throw new NullPointerException("Tree is empty!");
+//        Node temp = root;
+//        while (temp.left != null) {
+//            temp = temp.left;
+//        }
+//        return temp.value;
+//
+//    }
 
-        }
-        return false;
-    }
-
-    public int minValue() {
-        if (root == null) throw new NullPointerException("Tree is empty!");
-        Node temp = root;
-        while (temp.left != null) {
-            temp = temp.left;
-        }
-        return temp.value;
-
-    }
-
-    public int maxValue() {
-        if (root == null) throw new NullPointerException("Tree is empty!");
-        Node temp = root;
-        while (temp.right != null) {
-            temp = temp.right;
-        }
-        return temp.value;
-
-    }
+//    public int maxValue() {
+//        if (root == null) throw new NullPointerException("Tree is empty!");
+//        Node temp = root;
+//        while (temp.right != null) {
+//            temp = temp.right;
+//        }
+//        return temp.value;
+//
+//    }
 
     private boolean rContains(Node currentNode, int value) {
         if (currentNode == null) return false;
@@ -134,6 +134,16 @@ public class BinarySearchTree {
     public Integer rMinValue() {
         if (root == null) return null;
         return rMinValue(root).value;
+    }
+
+    private Node rMaxValue(Node currentNode) {
+        if (currentNode.right == null) return currentNode;
+        return rMaxValue(currentNode.right);
+    }
+
+    public Integer rMaxValue() {
+        if (root == null) return null;
+        return rMaxValue(root).value;
     }
 
 
