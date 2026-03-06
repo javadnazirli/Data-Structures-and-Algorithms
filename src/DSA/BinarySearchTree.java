@@ -1,5 +1,9 @@
 package DSA;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinarySearchTree {
     private Node root;
 
@@ -12,10 +16,6 @@ public class BinarySearchTree {
             this.value = value;
         }
 
-    }
-
-    public Node getRoot() {
-        return root;
     }
 
 
@@ -147,6 +147,23 @@ public class BinarySearchTree {
         if (root == null) return null;
         return rMaxValue(root).value;
     }
+
+    public ArrayList<Integer> BFS() {
+        if(root==null) return null;
+        Node currentNode = root;
+        Queue<Node> queue = new LinkedList<>();
+        ArrayList<Integer> results = new ArrayList<>();
+        queue.add(currentNode);
+
+        while (!queue.isEmpty()) {
+            currentNode = queue.remove();
+            results.add(currentNode.value);
+            if (currentNode.left != null) queue.add(currentNode.left);
+            if (currentNode.right != null) queue.add(currentNode.right);
+        }
+        return results;
+    }
+    
 
 
 }
