@@ -1,5 +1,7 @@
 import DSA.*;
 
+import java.sql.SQLOutput;
+
 void main() {
     LL myList = new LL(6);
     DLL myDLL = new DLL(10);
@@ -18,4 +20,6 @@ void main() {
     myBST.rInsert(90);
     myBST.rInsert(540);
     System.out.println(myBST.rMaxValue());
+    System.out.println("-----------------------------");
+    System.out.println(myBST.BFS());
 }
