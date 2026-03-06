@@ -12,6 +12,10 @@ void main() {
     myBST.rInsert(50);
     myBST.rInsert(20);
     myBST.rInsert(5);
-
+    myBST.rInsert(70);
+    myBST.rInsert(570);
+    myBST.rInsert(80);
+    myBST.rInsert(90);
+    myBST.rInsert(540);
     System.out.println(myBST.rMaxValue());
 }
