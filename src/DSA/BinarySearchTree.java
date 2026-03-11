@@ -192,6 +192,7 @@ public class BinarySearchTree {
         ArrayList<Integer> results = new ArrayList<>();
         traverseDFSInOrder(root, results);
         return results;
+
     }
 
     private void traverseDFSInOrder(Node currentNode, ArrayList<Integer> results) {

@@ -48,6 +48,7 @@ public class SortingAlgorithms {
             array[minimumIndex] = temp;
         }
         return array;
+
     }
 
     /**
