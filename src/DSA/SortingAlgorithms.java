@@ -1,6 +1,7 @@
 package DSA;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SortingAlgorithms {
     /**
@@ -70,4 +71,92 @@ public class SortingAlgorithms {
         }
         return array;
     }
+
+    /**
+     * Merge - Combines two sorted arrays into one sorted array.
+     * <p>
+     * Uses three pointers (i, j, index) to compare and place
+     * elements from both arrays in order.
+     * <p>
+     * Example:
+     * array1 = [1, 3, 5]
+     * array2 = [2, 4, 6]
+     * result = [1, 2, 3, 4, 5, 6]
+     * <p>
+     * Time Complexity:  O(n + m)
+     * Space Complexity: O(n + m)
+     *
+     * @param array1 the first sorted array
+     * @param array2 the second sorted array
+     * @return a new merged and sorted array
+     * @throws NullPointerException if both arrays are null
+     */
+    private static int[] merge(int[] array1, int[] array2) {
+        if (array1 == null) return array2;
+        if (array2 == null) return array1;
+        int[] combined = new int[array1.length + array2.length];
+        int index = 0;
+        int i = 0;
+        int j = 0;
+        // compare elements from both arrays and add the smaller one
+        while (i < array1.length && j < array2.length) {
+            if (array1[i] < array2[j]) {
+                combined[index] = array1[i];
+                i++;
+            } else {
+                combined[index] = array2[j];
+                j++;
+            }
+            index++;
+        }
+        // copy remaining elements from array1 if any
+        while (i < array1.length) {
+            combined[index] = array1[i];
+            index++;
+            i++;
+        }
+        // copy remaining elements from array2 if any
+        while (j < array2.length) {
+            combined[index] = array2[j];
+            index++;
+            j++;
+        }
+        return combined;
+    }
+
+    /**
+     * Merge Sort - Divide and Conquer Sorting Algorithm
+     * <p>
+     * Recursively splits the array in half, sorts each half,
+     * then merges them back together using the merge() method.
+     * <p>
+     * Visualization:
+     * [3, 1, 4, 2]
+     *   /       \
+     * [3, 1]    [4, 2]
+     *  /  \      /  \
+     * [3] [1]   [4] [2]
+     *  \ /       \ /
+     * [1,3]     [2,4]
+     *   \        /
+     *   [1,2,3,4]
+     * <p>
+     * Best Case  - Ω(n log n) - Always divides and merges
+     * Average    - Θ(n log n) - Randomly ordered
+     * Worst Case - O(n log n) - Always divides and merges
+     * <p>
+     * Space Complexity: O(n) - new arrays created at each level
+     *
+     * @param array the array to sort
+     * @return a new sorted array
+     */
+    public static int[] mergeSort(int[] array) {
+        if (array == null) throw new NullPointerException("Array is null!");
+        if (array.length == 1) return array;
+        int midIndex = array.length / 2;
+        int[] left = mergeSort(Arrays.copyOfRange(array, 0, midIndex));
+        int[] right = mergeSort(Arrays.copyOfRange(array, midIndex, array.length));
+        return merge(left, right);
+    }
+
 }
