@@ -149,7 +149,7 @@ public class BinarySearchTree {
     }
 
     public ArrayList<Integer> BFS() {
-        if(root==null) return null;
+        if (root == null) return null;
         Node currentNode = root;
         Queue<Node> queue = new LinkedList<>();
         ArrayList<Integer> results = new ArrayList<>();
@@ -163,7 +163,46 @@ public class BinarySearchTree {
         }
         return results;
     }
-    
+
+    public ArrayList<Integer> DFSPreOrder() {
+        ArrayList<Integer> results = new ArrayList<>();
+        traverseDFSPreOrder(root, results);
+        return results;
+    }
+
+    private void traverseDFSPreOrder(Node currentNode, ArrayList<Integer> results) {
+        if (currentNode == null) return;
+        results.add(currentNode.value);
+        traverseDFSPreOrder(currentNode.left, results);
+        traverseDFSPreOrder(currentNode.right, results);
+    }
+    public ArrayList<Integer> DFSPostOrder() {
+        ArrayList<Integer> results = new ArrayList<>();
+        traverseDFSPostOrder(root, results);
+        return results;
+    }
+
+    private void traverseDFSPostOrder(Node currentNode, ArrayList<Integer> results) {
+        if (currentNode == null) return;
+        traverseDFSPostOrder(currentNode.left, results);
+        traverseDFSPostOrder(currentNode.right, results);
+        results.add(currentNode.value);
+    }
+    public ArrayList<Integer> DFSInOrder() {
+        ArrayList<Integer> results = new ArrayList<>();
+        traverseDFSInOrder(root, results);
+        return results;
+
+    }
+
+    private void traverseDFSInOrder(Node currentNode, ArrayList<Integer> results) {
+        if (currentNode == null) return;
+        traverseDFSInOrder(currentNode.left, results);
+        results.add(currentNode.value);
+        traverseDFSInOrder(currentNode.right, results);
+
+    }
+
 
 
 }
