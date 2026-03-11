@@ -74,15 +74,15 @@ public class SortingAlgorithms {
 
     /**
      * Merge - Combines two sorted arrays into one sorted array.
-     * <p>
+     *
      * Uses three pointers (i, j, index) to compare and place
      * elements from both arrays in order.
-     * <p>
+     *
      * Example:
      * array1 = [1, 3, 5]
      * array2 = [2, 4, 6]
      * result = [1, 2, 3, 4, 5, 6]
-     * <p>
+     *
      * Time Complexity:  O(n + m)
      * Space Complexity: O(n + m)
      *
@@ -126,10 +126,10 @@ public class SortingAlgorithms {
 
     /**
      * Merge Sort - Divide and Conquer Sorting Algorithm
-     * <p>
+     *
      * Recursively splits the array in half, sorts each half,
      * then merges them back together using the merge() method.
-     * <p>
+     *
      * Visualization:
      * [3, 1, 4, 2]
      *   /       \
@@ -140,11 +140,11 @@ public class SortingAlgorithms {
      * [1,3]     [2,4]
      *   \        /
      *   [1,2,3,4]
-     * <p>
+     *
      * Best Case  - Ω(n log n) - Always divides and merges
      * Average    - Θ(n log n) - Randomly ordered
      * Worst Case - O(n log n) - Always divides and merges
-     * <p>
+     *
      * Space Complexity: O(n) - new arrays created at each level
      *
      * @param array the array to sort
